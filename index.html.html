@@ -1,0 +1,1435 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abu Syaekhon - Professional Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+
+        /* Efek hover untuk semua img jpg / jpeg */
+.gallery-item img[src$=".jpg"],
+.gallery-item img[src$=".jpeg"] {
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+/* Saat hover: zoom + shadow */
+.gallery-item img[src$=".jpg"]:hover,
+.gallery-item img[src$=".jpeg"]:hover {
+  transform: scale(1.1);
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.25);
+}
+
+/* Tambahan biar container juga ikut "angkat" */
+.gallery-item {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gallery-item:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.15);
+}
+
+        .glass {
+            background: rgba(255, 255, 255, 0.25);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        .skill-card {
+            transition: transform 0.3s ease;
+        }
+        .skill-card:hover {
+            transform: translateY(-5px);
+        }
+        .gallery-item {
+            transition: transform 0.3s ease;
+        }
+        .gallery-item:hover {
+            transform: scale(1.05);
+        }
+        .experience-timeline {
+            position: relative;
+        }
+        .experience-timeline::before {
+            content: '';
+            position: absolute;
+            left: 20px;
+            top: 0;
+            height: 100%;
+            width: 2px;
+            background: linear-gradient(to bottom, #3B82F6, #8B5CF6);
+        }
+        .timeline-item {
+            position: relative;
+            margin-left: 50px;
+            margin-bottom: 40px;
+            padding: 20px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .timeline-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -35px;
+            top: 25px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #3B82F6;
+            border: 3px solid white;
+            box-shadow: 0 0 0 3px #3B82F6;
+        }
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .fade-in-up {
+            animation: fadeInUp 0.8s ease-out;
+        }
+        .job-tag {
+            display: inline-block;
+            background: #EBF8FF;
+            color: #2B6CB0;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.875rem;
+            margin: 2px;
+            border: 1px solid #BEE3F8;
+        }
+
+        .link-glass span {
+  position: absolute;
+  inset: 0; /* isi penuh link */
+  border-radius: 0.5rem; /* rounded-lg */
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  z-index: -1;
+  transform: scale(0.8);
+  opacity: 0;
+  transition: all 0.4s ease;
+}
+
+@keyframes shimmer {
+  0% { transform: translateX(-100%) skewX(-12deg); }
+  100% { transform: translateX(100%) skewX(-12deg); }
+}
+.animate-shimmer {
+  animation: shimmer 2.5s infinite;
+}
+
+.link-glass:hover span {
+  transform: scale(1);
+  opacity: 1;
+}
+
+.hover-effect {
+  display: inline-block;
+  transition: all 0.4s ease;
+}
+
+.hover-effect:hover {
+  transform: scale(1.08);
+  color: #baeb25; /* biru Tailwind-600 */
+  text-shadow: 0 0 12px rgba(37, 99, 235, 0.4);
+}
+nav {
+  box-shadow: 0 0 20px rgba(79, 172, 254, 0.4), 
+              0 0 40px rgba(0, 242, 254, 0.3);
+  animation: navbarGlow 4s infinite alternate;
+}
+
+@keyframes navbarGlow {
+  0% {
+    box-shadow: 0 0 20px rgba(79, 172, 254, 0.4),
+                0 0 40px rgba(0, 242, 254, 0.3);
+  }
+  100% {
+    box-shadow: 0 0 40px rgba(79, 172, 254, 0.6),
+                0 0 80px rgba(0, 242, 254, 0.5);
+  }
+}
+
+@keyframes footerGlow { 
+  0% { transform: translateX(-50%) translateY(-20%); }
+  100% { transform: translateX(50%) translateY(20%); }
+}
+
+.animate-footer-glow {
+  animation: footerGlow 12s ease-in-out infinite alternate;
+}
+
+@keyframes glowLine {
+  0% { opacity: 0.4; }
+  50% { opacity: 1; }
+  100% { opacity: 0.4; }
+}
+
+.animate-glow-line {
+  animation: glowLine 4s ease-in-out infinite;
+}
+
+
+</style>
+
+    </style>
+</head>
+<body class="bg-gradient-to-br from-blue-50 via-white to-purple-50 min-h-screen">
+    
+    <!-- Navigation -->
+    <!-- Navigation -->
+<nav class="fixed top-0 w-full z-50 
+            backdrop-blur-xl bg-white/20 
+            border-b border-white/30 
+            shadow-lg">
+  <div class="container mx-auto px-6 py-4">
+    <div class="flex justify-between items-center">
+      <div class="text-2xl font-bold text-gray-800">Portofolio</div>
+
+      <!-- Desktop Menu -->
+      <div class="hidden md:flex space-x-4">
+        <a href="#home" class="relative px-3 py-1 text-gray-700 hover:text-blue-600 link-glass">
+          Home
+          <span></span>
+        </a>
+        <a href="#about" class="relative px-3 py-1 text-gray-700 hover:text-blue-600 link-glass">
+          About
+          <span></span>
+        </a>
+        <a href="#experience" class="relative px-3 py-1 text-gray-700 hover:text-blue-600 link-glass">
+          Experience
+          <span></span>
+        </a>
+        <a href="#education" class="relative px-3 py-1 text-gray-700 hover:text-blue-600 link-glass">
+          Education
+          <span></span>
+        </a>
+        <a href="#skills" class="relative px-3 py-1 text-gray-700 hover:text-blue-600 link-glass">
+          Skills
+          <span></span>
+        </a>
+        <a href="#achievements" class="relative px-3 py-1 text-gray-700 hover:text-blue-600 link-glass">
+          Achievements
+          <span></span>
+        </a>
+        <a href="#gallery" class="relative px-3 py-1 text-gray-700 hover:text-blue-600 link-glass">
+          Gallery
+          <span></span>
+        </a>
+        <a href="#contact" class="relative px-3 py-1 text-gray-700 hover:text-blue-600 link-glass">
+          Contact
+          <span></span>
+        </a>
+      </div>
+
+      <!-- Mobile Button -->
+      <button id="mobileMenu" class="md:hidden text-gray-700">
+        <i class="fas fa-bars text-xl"></i>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- Mobile Menu -->
+<div id="mobileMenuPanel" 
+     class="fixed top-16 left-0 w-full 
+            backdrop-blur-xl bg-white/20 
+            border-b border-white/30 
+            shadow-lg z-40 hidden">
+  <div class="py-4 px-6 space-y-4">
+    <a href="#home" class="relative block px-3 py-2 text-gray-700 hover:text-blue-600 link-glass">
+      Home
+      <span></span>
+    </a>
+    <a href="#about" class="relative block px-3 py-2 text-gray-700 hover:text-blue-600 link-glass">
+      About
+      <span></span>
+    </a>
+    <a href="#experience" class="relative block px-3 py-2 text-gray-700 hover:text-blue-600 link-glass">
+      Experience
+      <span></span>
+    </a>
+    <a href="#education" class="relative block px-3 py-2 text-gray-700 hover:text-blue-600 link-glass">
+      Education
+      <span></span>
+    </a>
+    <a href="#skills" class="relative block px-3 py-2 text-gray-700 hover:text-blue-600 link-glass">
+      Skills
+      <span></span>
+    </a>
+    <a href="#achievements" class="relative block px-3 py-2 text-gray-700 hover:text-blue-600 link-glass">
+      Achievements
+      <span></span>
+    </a>
+    <a href="#gallery" class="relative block px-3 py-2 text-gray-700 hover:text-blue-600 link-glass">
+      Gallery
+      <span></span>
+    </a>
+    <a href="#contact" class="relative block px-3 py-2 text-gray-700 hover:text-blue-600 link-glass">
+      Contact
+      <span></span>
+    </a>
+  </div>
+</div>
+
+
+
+    <!-- Hero Section -->
+    <section id="home" class="pt-24 pb-16 px-6">
+        <div class="container mx-auto text-center">
+            <div class="fade-in-up">
+                <div class="w-40 h-40 mx-auto mb-8">
+                    <img src="photo/potoprofessional.png" 
+                         alt="Profile Picture" 
+                         class="w-full h-full rounded-full object-cover shadow-2xl border-4 border-white">
+                </div>
+                <h1 class="text-4xl md:text-6xl font-bold text-gray-800 mb-4">
+                    Abu Syaekhon
+                </h1>
+                <p class="text-xl text-gray-600 mb-8">Administrator Tender Specialist | E Procurement | Legal </p>
+                <div class="flex justify-center space-x-4">
+                    <button class="bg-gray-100 hover:bg-gray-200 px-8 py-3 rounded-full text-gray-700 transition-all duration-300 shadow-lg">
+                        Download CV
+                    </button>
+                    <button class="bg-blue-600 text-white px-8 py-3 rounded-full hover:bg-blue-700 transition-colors shadow-lg">
+                        <a href="https://wa.me/6285860621873?text=Halo,%20saya%20tertarik%20dengan%20jasa%20Anda!" target="_blank" 
+   class="bg-blue-600 text-white px-8 py-3 rounded-full hover:bg-blue-700 transition-colors shadow-lg">
+   Contact Me
+</a>
+
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-16 px-6">
+        <div class="container mx-auto">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h2 class="text-4xl font-bold text-gray-800 mb-8">Tentang Saya</h2>
+                    <p class="text-gray-600 mb-6 leading-relaxed">
+                        Saya adalah seorang Administrator Tender berpengalaman dengan lebih dari 5 tahun bekerja 
+                        di bidang procurement untuk proyek BUMN dan swasta. Memiliki keahlian dalam mengelola 
+                        dokumen tender, negosiasi kontrak, dan analisis data proyek.
+                    </p>
+                    <p class="text-gray-600 mb-8 leading-relaxed">
+                        Dengan latar belakang yang kuat dalam administrasi bisnis dan passion untuk efisiensi 
+                        operasional, saya berkomitmen untuk memberikan hasil terbaik dalam setiap proyek 
+                        yang ditangani.
+                    </p>
+                    <div class="flex flex-wrap gap-2 mb-8">
+                        <span class="job-tag">Procurement Specialist</span>
+                        <span class="job-tag">Contract Management</span>
+                        <span class="job-tag">Legal Compliance</span>
+                        <span class="job-tag">Project Analysis</span>
+                    </div>
+                </div>
+                
+                <div class="glass p-8 rounded-2xl">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-6">Profile Summary</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-start">
+                            <i class="fas fa-map-marker-alt text-blue-600 mt-1 mr-3"></i>
+                            <p class="text-gray-700">Bandung, West Java, Indonesia</p>
+                        </div>
+                        <div class="flex items-start">
+                            <i class="fas fa-calendar text-blue-600 mt-1 mr-3"></i>
+                            <p class="text-gray-700">5+ Years Professional Experience</p>
+                        </div>
+                        <div class="flex items-start">
+                            <i class="fas fa-briefcase text-blue-600 mt-1 mr-3"></i>
+                            <p class="text-gray-700">Govermant , BUMN & Private Sector Projects</p>
+                        </div>
+                        <div class="flex items-start">
+                            <i class="fas fa-award text-blue-600 mt-1 mr-3"></i>
+                            <p class="text-gray-700">Experienced In Tender / Eprocurmenet</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+<!-- Education Section -->
+    <section id="education" class="py-16 px-6">
+        <div class="container mx-auto">
+            <h2 class="text-4xl font-bold text-center text-gray-800 mb-12">Professional Education Profile</h2>
+            
+            <div class="experience-timeline max-w-4xl mx-auto">
+                
+                <!-- Current Education -->
+                <div class="timeline-item">
+                    <div class="flex flex-col md:flex-row md:justify-between md:items-start mb-4">
+                        <div>
+                            <h3 class="text-2xl font-bold text-gray-800 mb-2">S1 Administrasi Negara</h3>
+                            <h4 class="text-xl text-blue-600 font-semibold mb-2">Universitas Negeri Terbuka Bandung</h4>
+                            <p class="text-gray-600 mb-2">
+                                <i class="fas fa-map-marker-alt mr-2"></i>
+                                Bandung, West Java
+                            </p>
+                        </div>
+                        <div class="text-right">
+                            <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-medium">
+                                On-going Education
+                            </span>
+                            <p class="text-gray-600 mt-2 font-medium">Agustus 2025 - Juni 2029</p>
+                            <p class="text-gray-500 text-sm">Expected Graduation: 2029</p>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <h5 class="font-semibold text-gray-800 mb-2">Program Studi:</h5>
+                        <p class="text-gray-700">Administrasi Negara - Public Administration</p>
+                    </div>
+
+                    <div class="mb-6">
+                        <h5 class="font-semibold text-gray-800 mb-3">Fokus Pembelajaran:</h5>
+                        <div class="grid md:grid-cols-2 gap-4">
+                            <div class="space-y-3">
+                                <div class="flex items-start">
+                                    <i class="fas fa-check-circle text-green-600 mt-1 mr-3 flex-shrink-0"></i>
+                                    <p class="text-gray-700">Manajemen Administrasi Publik</p>
+                                </div>
+                                <div class="flex items-start">
+                                    <i class="fas fa-check-circle text-green-600 mt-1 mr-3 flex-shrink-0"></i>
+                                    <p class="text-gray-700">Kebijakan Publik & Governance</p>
+                                </div>
+                                <div class="flex items-start">
+                                    <i class="fas fa-check-circle text-green-600 mt-1 mr-3 flex-shrink-0"></i>
+                                    <p class="text-gray-700">Hukum Administrasi Negara</p>
+                                </div>
+                            </div>
+                            <div class="space-y-3">
+                                <div class="flex items-start">
+                                    <i class="fas fa-check-circle text-green-600 mt-1 mr-3 flex-shrink-0"></i>
+                                    <p class="text-gray-700">Manajemen Keuangan Publik</p>
+                                </div>
+                                <div class="flex items-start">
+                                    <i class="fas fa-check-circle text-green-600 mt-1 mr-3 flex-shrink-0"></i>
+                                    <p class="text-gray-700">Sistem Informasi Administrasi</p>
+                                </div>
+                                <div class="flex items-start">
+                                    <i class="fas fa-check-circle text-green-600 mt-1 mr-3 flex-shrink-0"></i>
+                                    <p class="text-gray-700">Etika & Pelayanan Publik</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mb-4">
+                        <h5 class="font-semibold text-gray-800 mb-2">Relevansi dengan Karir:</h5>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="job-tag">Public Administration</span>
+                            <span class="job-tag">Policy Analysis</span>
+                            <span class="job-tag">Government Relations</span>
+                            <span class="job-tag">Legal Framework</span>
+                            <span class="job-tag">Public Service</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Previous Education -->
+                <div class="timeline-item">
+                    <div class="flex flex-col md:flex-row md:justify-between md:items-start mb-4">
+                        <div>
+                            <h3 class="text-2xl font-bold text-gray-800 mb-2">SMK Teknik Informatika</h3>
+                            <h4 class="text-xl text-blue-600 font-semibold mb-2">SMK Wahidin Cirebon</h4>
+                            <p class="text-gray-600 mb-2">
+                                <i class="fas fa-map-marker-alt mr-2"></i>
+                                Cirebon, West Java
+                            </p>
+                        </div>
+                        <div class="text-right">
+                            <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium">
+                                Completed
+                            </span>
+                            <p class="text-gray-600 mt-2 font-medium">Tahun Lulus: 2016/2017</p>
+                            <p class="text-gray-500 text-sm">Vocational High School</p>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <h5 class="font-semibold text-gray-800 mb-2">Jurusan:</h5>
+                        <p class="text-gray-700">Rekayasa Perangkat Lunak (Software Engineering)</p>
+                    </div>
+
+                    <div class="mb-6">
+                        <h5 class="font-semibold text-gray-800 mb-3">Kompetensi yang Dipelajari:</h5>
+                        <div class="grid md:grid-cols-2 gap-4">
+                            <div class="space-y-3">
+                                <div class="flex items-start">
+                                    <i class="fas fa-check-circle text-blue-600 mt-1 mr-3 flex-shrink-0"></i>
+                                    <p class="text-gray-700">Programming & Software Development</p>
+                                </div>
+                                <div class="flex items-start">
+                                    <i class="fas fa-check-circle text-blue-600 mt-1 mr-3 flex-shrink-0"></i>
+                                    <p class="text-gray-700">Database Management</p>
+                                </div>
+                                <div class="flex items-start">
+                                    <i class="fas fa-check-circle text-blue-600 mt-1 mr-3 flex-shrink-0"></i>
+                                    <p class="text-gray-700">System Analysis & Design</p>
+                                </div>
+                            </div>
+                            <div class="space-y-3">
+                                <div class="flex items-start">
+                                    <i class="fas fa-check-circle text-blue-600 mt-1 mr-3 flex-shrink-0"></i>
+                                    <p class="text-gray-700">Web Development</p>
+                                </div>
+                                <div class="flex items-start">
+                                    <i class="fas fa-check-circle text-blue-600 mt-1 mr-3 flex-shrink-0"></i>
+                                    <p class="text-gray-700">Computer Networking</p>
+                                </div>
+                                <div class="flex items-start">
+                                    <i class="fas fa-check-circle text-blue-600 mt-1 mr-3 flex-shrink-0"></i>
+                                    <p class="text-gray-700">Technical Documentation</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mb-4">
+                        <h5 class="font-semibold text-gray-800 mb-3">Kontribusi pada Karir Saat Ini:</h5>
+                        <div class="bg-gray-50 p-4 rounded-lg">
+                            <p class="text-gray-700">
+                                Latar belakang teknik informatika memberikan keunggulan dalam memahami sistem 
+                                e-procurement, mengelola database tender, dan mengoptimalkan proses digitalisasi 
+                                administrasi tender.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h5 class="font-semibold text-gray-800 mb-2">Technical Foundation:</h5>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="job-tag">Software Engineering</span>
+                            <span class="job-tag">Database Systems</span>
+                            <span class="job-tag">Web Technologies</span>
+                            <span class="job-tag">System Analysis</span>
+                            <span class="job-tag">Technical Documentation</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Continuous Learning Note -->
+                <div class="timeline-item bg-gradient-to-r from-purple-50 to-blue-50 border-2 border-dashed border-purple-200">
+                    <div class="text-center py-8">
+                        <i class="fas fa-graduation-cap text-4xl text-purple-500 mb-4"></i>
+                        <h3 class="text-xl font-semibold text-gray-700 mb-2">Continuous Professional Development</h3>
+                        <p class="text-gray-600">
+                            Komitmen untuk terus belajar dan mengembangkan kompetensi profesional 
+                            melalui sertifikasi, pelatihan, dan pendidikan formal.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <!-- Experience Section -->
+    <section id="experience" class="py-16 px-6 bg-gradient-to-r from-gray-50 to-blue-50">
+        <div class="container mx-auto">
+            <h2 class="text-4xl font-bold text-center text-gray-800 mb-12">Professional Experience</h2>
+            
+            <div class="experience-timeline max-w-4xl mx-auto">
+                
+                <!-- Current Position -->
+                <div class="timeline-item">
+                    <div class="flex flex-col md:flex-row md:justify-between md:items-start mb-4">
+                        <div>
+                            <h3 class="text-2xl font-bold text-gray-800 mb-2">PT. Syapril Janizar & PT. Nuansa Citramandiri </h3>
+                            <h4 class="text-xl text-blue-600 font-semibold mb-2">Administrasi Tender | E Procurement | Legal</h4>
+                            <h5 class="text-xl text-gray-600 font-semibold mb-2"><i>Holding Company Konsultan Perencana Bangunan Gedung</i></h5>
+                            <p class="text-gray-600 mb-2">
+                                <i class="fas fa-map-marker-alt mr-2"></i>
+                                BCV 2 R - 10 Jl. Pasir Impun, Kota Bandung
+                            </p>
+                            <p class="text-gray-600 mb-4">
+                                <i class="fas fa-globe mr-2"></i>
+                                <a href="https://ptsjp.co.id/" target="_blank" class="text-blue-600 hover:underline">www.ptsjp.co.id</a>
+                            </p>
+                        </div>
+                        <div class="text-right">
+                            <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-medium">
+                                Current Position
+                            </span>
+                            <p class="text-gray-600 mt-2 font-medium">Jan 2020 - Present</p>
+                            <p class="text-gray-500 text-sm">5+ Years</p>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <h5 class="font-semibold text-gray-800 mb-2">Bidang Perusahaan:</h5>
+                        <p class="text-gray-700">Jasa Konsultan Perencana Bangunan Gedung</p>
+                    </div>
+
+                    <div class="mb-6">
+                        <h5 class="font-semibold text-gray-800 mb-3">Job Description & Responsibilities:</h5>
+                        <div class="grid md:grid-cols-2 gap-4">
+                            <div class="space-y-3">
+                                <div class="flex items-start">
+                                    <i class="fas fa-check-circle text-green-600 mt-1 mr-3 flex-shrink-0"></i>
+                                    <p class="text-gray-700">Mengelola dokumen tender dari tahap persiapan hingga finalisasi</p>
+                                </div>
+                                <div class="flex items-start">
+                                    <i class="fas fa-check-circle text-green-600 mt-1 mr-3 flex-shrink-0"></i>
+                                    <p class="text-gray-700">Administrasi Spesialis Tender untuk berbagai sektor</p>
+                                </div>
+                                <div class="flex items-start">
+                                    <i class="fas fa-check-circle text-green-600 mt-1 mr-3 flex-shrink-0"></i>
+                                    <p class="text-gray-700">Menangani Tender Pemerintahan, BUMN & Swasta</p>
+                                </div>
+                            </div>
+                            <div class="space-y-3">
+                                <div class="flex items-start">
+                                    <i class="fas fa-check-circle text-green-600 mt-1 mr-3 flex-shrink-0"></i>
+                                    <p class="text-gray-700">Memastikan compliance terhadap regulasi pengadaan</p>
+                                </div>
+                                <div class="flex items-start">
+                                    <i class="fas fa-check-circle text-green-600 mt-1 mr-3 flex-shrink-0"></i>
+                                    <p class="text-gray-700">Perizinan Legalitas Perusahaan</p>
+                                </div>
+                                <div class="flex items-start">
+                                    <i class="fas fa-check-circle text-green-600 mt-1 mr-3 flex-shrink-0"></i>
+                                    <p class="text-gray-700">Pemahaman Regulasi & Proses Tender</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mb-4">
+                        <h5 class="font-semibold text-gray-800 mb-3">Key Achievements:</h5>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">Achieved IDR 20B+ in project value</span>
+                            <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm">12+ Completed Projects</span>
+                            <span class="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm">30% Efficiency Improvement</span>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h5 class="font-semibold text-gray-800 mb-2">Core Technologies & Tools:</h5>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="job-tag">Microsoft Office Suite</span>
+                            <span class="job-tag">E-Procurement Systems</span>
+                            <span class="job-tag">Contract Management</span>
+                            <span class="job-tag">Legal Documentation</span>
+                            <span class="job-tag">Project Analysis</span>
+                            <span class="job-tag">Vendor Management</span>
+                        </div>
+                    </div>
+                    
+                    
+                </div>
+
+                <!-- You can add previous positions here in the future -->
+
+            </div>
+            <div class="experience-timeline max-w-4xl mx-auto">
+                
+                <!-- Current Position -->
+                <div class="timeline-item">
+                    <div class="flex flex-col md:flex-row md:justify-between md:items-start mb-4">
+                        <div>
+                            <h3 class="text-2xl font-bold text-gray-800 mb-2">CV. Ada Project</h3>
+                            <h5 class="text-xl text-gray-600 font-semibold mb-2"><i>General Contractor Construction</i></h5>
+                            <h4 class="text-xl text-blue-600 font-semibold mb-2">Admin & Finance</h4>
+                            <p class="text-gray-600 mb-2">
+                                <i class="fas fa-map-marker-alt mr-2"></i>
+                                 7G7C+22H, Karyamulya, Kesambi, Cirebon City, West Java 45153
+                            </p>
+                            <p class="text-gray-600 mb-4">
+                                <i class="fas fa-globe mr-2"></i>
+                                <a href="" target="_blank" class="text-blue-600 hover:underline">-</a>
+                            </p>
+                        </div>
+                        <div class="text-right">
+                            <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-medium">
+                                Previous Position
+                            </span>
+                            <p class="text-gray-600 mt-2 font-medium">Januari 2018 - Juli 2018</p>
+                            <p class="text-gray-500 text-sm">6 Months</p>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <h5 class="font-semibold text-gray-800 mb-2">Bidang Perusahaan:</h5>
+                        <p class="text-gray-700">General Contractor</p>
+                    </div>
+
+                    <div class="mb-6">
+                        <h5 class="font-semibold text-gray-800 mb-3">Job Description & Responsibilities:</h5>
+                        <div class="grid md:grid-cols-2 gap-4">
+                            <div class="space-y-3">
+                                <div class="flex items-start">
+                                    <i class="fas fa-check-circle text-green-600 mt-1 mr-3 flex-shrink-0"></i>
+                                    <p class="text-gray-700">Menyusun dan mengarsip dokumen proyek (kontrak kerja, progress report, BAST, dll).</p>
+                                </div>
+                                <div class="flex items-start">
+                                    <i class="fas fa-check-circle text-green-600 mt-1 mr-3 flex-shrink-0"></i>
+                                    <p class="text-gray-700">Mengatur surat-menyurat dan dokumen perusahaan</p>
+                                </div>
+                                <div class="flex items-start">
+                                    <i class="fas fa-check-circle text-green-600 mt-1 mr-3 flex-shrink-0"></i>
+                                    <p class="text-gray-700">Membantu koordinasi antara kantor dan lapangan (site project).</p>
+                                </div>
+                            </div>
+                            <div class="space-y-3">
+                                <div class="flex items-start">
+                                    <i class="fas fa-check-circle text-green-600 mt-1 mr-3 flex-shrink-0"></i>
+                                    <p class="text-gray-700">Memastikan compliance terhadap regulasi pengadaan</p>
+                                </div>
+                                <div class="flex items-start">
+                                    <i class="fas fa-check-circle text-green-600 mt-1 mr-3 flex-shrink-0"></i>
+                                    <p class="text-gray-700">Membuat dan mencatat transaksi keuangan (kas kecil, pembayaran vendor, pembelian material).</p>
+                                </div>
+                                <div class="flex items-start">
+                                    <i class="fas fa-check-circle text-green-600 mt-1 mr-3 flex-shrink-0"></i>
+                                    <p class="text-gray-700">Membuat invoice, kwitansi, dan dokumen pembayaran.r</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mb-4">
+                        <h5 class="font-semibold text-gray-800 mb-3">Key Achievements:</h5>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">Berkontribusi dalam berbagai proyek bernilai besar</span>
+                            <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm">Berhasil menyelesaikan banyak proyek dengan hasil memuaskan</span>
+                            <span class="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm">Meningkatkan efisiensi dan produktivitas dalam proses kerja</span>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h5 class="font-semibold text-gray-800 mb-2">Core Technologies & Tools:</h5>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="job-tag">Project Financial Management</span>
+                            <span class="job-tag">Contract & Document Control</span>
+                            <span class="job-tag">Contract Management</span>
+                            <span class="job-tag">Legal & Compliance Administration</span>
+                            <span class="job-tag">Project Analysis</span>
+                            <span class="job-tag">Vendor Management</span>
+                        </div>
+                    </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+   <section id="skills" class="py-16 px-6 bg-gradient-to-r from-blue-50 to-purple-50">
+  <div class="container mx-auto">
+    <h2 class="text-4xl font-bold text-center text-gray-800 mb-12
+               transition duration-300 transform hover:scale-105 hover:text-blue-600 hover:drop-shadow-lg">
+      Key Competency Tender Administration
+    </h2>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+      
+      <!-- Skill 1 -->
+      <div class="text-center bg-white p-8 rounded-xl shadow-lg
+                  transition duration-300 transform hover:scale-105 hover:shadow-2xl">
+        <div class="w-20 h-20 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4 
+                    transition duration-300 group-hover:bg-blue-200">
+          <i class="fas fa-file-contract text-blue-600 text-3xl transition duration-300 group-hover:text-yellow-500"></i>
+        </div>
+        <h3 class="text-xl font-bold text-gray-800 mb-2">Administrasi Tender</h3>
+        <div class="w-full bg-gray-200 rounded-full h-2 mb-4">
+          <div class="bg-blue-600 h-2 rounded-full" style="width: 95%"></div>
+        </div>
+        <p class="text-gray-600">Expert level - 5+ years</p>
+      </div>
+
+      <!-- Skill 2 -->
+      <div class="text-center bg-white p-8 rounded-xl shadow-lg
+                  transition duration-300 transform hover:scale-105 hover:shadow-2xl">
+        <div class="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+          <i class="fas fa-chart-line text-green-600 text-3xl"></i>
+        </div>
+        <h3 class="text-xl font-bold text-gray-800 mb-2">Analisis & Strategi Tender</h3>
+        <div class="w-full bg-gray-200 rounded-full h-2 mb-4">
+          <div class="bg-green-600 h-2 rounded-full" style="width: 90%"></div>
+        </div>
+        <p class="text-gray-600">Advanced level</p>
+      </div>
+
+      <!-- Skill 3 -->
+      <div class="text-center bg-white p-8 rounded-xl shadow-lg
+                  transition duration-300 transform hover:scale-105 hover:shadow-2xl">
+        <div class="w-20 h-20 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
+          <i class="fas fa-handshake text-purple-600 text-3xl"></i>
+        </div>
+        <h3 class="text-xl font-bold text-gray-800 mb-2">Komunikasi Bisnis</h3>
+        <div class="w-full bg-gray-200 rounded-full h-2 mb-4">
+          <div class="bg-purple-600 h-2 rounded-full" style="width: 88%"></div>
+        </div>
+        <p class="text-gray-600">Advanced level</p>
+      </div>
+
+      <!-- Skill 4 -->
+      <div class="text-center bg-white p-8 rounded-xl shadow-lg
+                  transition duration-300 transform hover:scale-105 hover:shadow-2xl">
+        <div class="w-20 h-20 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
+          <i class="fas fa-laptop text-orange-600 text-3xl"></i>
+        </div>
+        <h3 class="text-xl font-bold text-gray-800 mb-2">Microsoft Office</h3>
+        <div class="w-full bg-gray-200 rounded-full h-2 mb-4">
+          <div class="bg-orange-600 h-2 rounded-full" style="width: 92%"></div>
+        </div>
+        <p class="text-gray-600">Expert level</p>
+      </div>
+
+      <!-- Skill 5 -->
+      <div class="text-center bg-white p-8 rounded-xl shadow-lg
+                  transition duration-300 transform hover:scale-105 hover:shadow-2xl">
+        <div class="w-20 h-20 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
+          <i class="fas fa-balance-scale text-red-600 text-3xl"></i>
+        </div>
+        <h3 class="text-xl font-bold text-gray-800 mb-2">Pengurusan Legal</h3>
+        <div class="w-full bg-gray-200 rounded-full h-2 mb-4">
+          <div class="bg-red-600 h-2 rounded-full" style="width: 85%"></div>
+        </div>
+        <p class="text-gray-600">Advanced level</p>
+      </div>
+
+      <!-- Skill 6 -->
+      <div class="text-center bg-white p-8 rounded-xl shadow-lg
+                  transition duration-300 transform hover:scale-105 hover:shadow-2xl">
+        <div class="w-20 h-20 bg-teal-100 rounded-full flex items-center justify-center mx-auto mb-4">
+          <i class="fas fa-users text-teal-600 text-3xl"></i>
+        </div>
+        <h3 class="text-xl font-bold text-gray-800 mb-2">Vendor Relations</h3>
+        <div class="w-full bg-gray-200 rounded-full h-2 mb-4">
+          <div class="bg-teal-600 h-2 rounded-full" style="width: 87%"></div>
+        </div>
+        <p class="text-gray-600">Advanced level</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="skills" class="py-16 px-6 bg-gradient-to-r from-blue-50 to-purple-50">
+  <div class="container mx-auto">
+    <h2 class="text-4xl font-bold text-center text-gray-800 mb-12
+               transition duration-300 transform hover:scale-105 hover:text-blue-600 hover:drop-shadow-lg">
+      Supporting Skills
+    </h2>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+      
+      <!-- Skill 1 -->
+      <div class="text-center bg-white p-8 rounded-xl shadow-lg
+                  transition duration-300 transform hover:scale-105 hover:shadow-2xl">
+        <div class="w-20 h-20 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4 
+                    transition duration-300 group-hover:bg-blue-200">
+          <img src="https://cdn.worldvectorlogo.com/logos/adobe-photoshop-2.svg" 
+     alt="Photoshop Logo" 
+     class="w-10 h-10 transition duration-300 group-hover:scale-110">
+
+        </div>
+        <h3 class="text-xl font-bold text-gray-800 mb-2">Adobe Photoshop</h3>
+        <div class="w-full bg-gray-200 rounded-full h-2 mb-4">
+          <div class="bg-blue-600 h-2 rounded-full" style="width: 95%"></div>
+        </div>
+        <p class="text-gray-600">Expert level - 5+ years</p>
+      </div>
+
+      <!-- Skill 2 -->
+      <div class="text-center bg-white p-8 rounded-xl shadow-lg
+                  transition duration-300 transform hover:scale-105 hover:shadow-2xl">
+        <div class="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+           <img src="Supporting Skiils/Adobeillustrator.png" 
+       alt="Adobe Illustrator Logo" 
+       class="w-12 h-12 object-contain">
+        </div>
+        <h3 class="text-xl font-bold text-gray-800 mb-2">Adobe Illustrator</h3>
+        <div class="w-full bg-gray-200 rounded-full h-2 mb-4">
+          <div class="bg-green-600 h-2 rounded-full" style="width: 90%"></div>
+        </div>
+        <p class="text-gray-600">Advanced level</p>
+      </div>
+
+      <!-- Skill 3 -->
+      <div class="text-center bg-white p-8 rounded-xl shadow-lg
+                  transition duration-300 transform hover:scale-105 hover:shadow-2xl">
+        <div class="w-20 h-20 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
+           <img src="Supporting Skiils/visual studio code.png" 
+       alt="Adobe Illustrator Logo" 
+       class="w-12 h-12 object-contain">
+        </div>
+        <h3 class="text-xl font-bold text-gray-800 mb-2">Web Design</h3>
+        <div class="w-full bg-gray-200 rounded-full h-2 mb-4">
+          <div class="bg-purple-600 h-2 rounded-full" style="width: 88%"></div>
+        </div>
+        <p class="text-gray-600">Advanced level</p>
+      </div>
+
+      <!-- Skill 4 -->
+      <div class="text-center bg-white p-8 rounded-xl shadow-lg
+                  transition duration-300 transform hover:scale-105 hover:shadow-2xl">
+        <div class="w-20 h-20 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
+          <i class="fas fa-laptop text-orange-600 text-3xl"></i>
+        </div>
+        <h3 class="text-xl font-bold text-gray-800 mb-2">Editing Video</h3>
+        <div class="w-full bg-gray-200 rounded-full h-2 mb-4">
+          <div class="bg-orange-600 h-2 rounded-full" style="width: 92%"></div>
+        </div>
+        <p class="text-gray-600">Expert level</p>
+      </div>
+
+      <!-- Skill 5 -->
+      <div class="text-center bg-white p-8 rounded-xl shadow-lg
+                  transition duration-300 transform hover:scale-105 hover:shadow-2xl">
+        <div class="w-20 h-20 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
+          <img src="Supporting Skiils/chatgpt.png" 
+       alt="Adobe Illustrator Logo" 
+       class="w-12 h-12 object-contain">
+        </div>
+        <h3 class="text-xl font-bold text-gray-800 mb-2">AI Supporting Tools</h3>
+        <div class="w-full bg-gray-200 rounded-full h-2 mb-4">
+          <div class="bg-red-600 h-2 rounded-full" style="width: 85%"></div>
+        </div>
+        <p class="text-gray-600">Advanced level</p>
+      </div>
+
+      <!-- Skill 6 -->
+      <div class="text-center bg-white p-8 rounded-xl shadow-lg
+                  transition duration-300 transform hover:scale-105 hover:shadow-2xl">
+        <div class="w-20 h-20 bg-teal-100 rounded-full flex items-center justify-center mx-auto mb-4">
+          <i class="fas fa-cog text-gray-600 text-3xl"></i>
+        </div>
+        <h3 class="text-xl font-bold text-gray-800 mb-2">Maintanancing Computer</h3>
+        <div class="w-full bg-gray-200 rounded-full h-2 mb-4">
+          <div class="bg-teal-600 h-2 rounded-full" style="width: 87%"></div>
+        </div>
+        <p class="text-gray-600">Advanced level</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+    <!-- Achievements Section -->
+    <section id="achievements" class="py-16 px-6 bg-gradient-to-r from-blue-50 to-purple-50">
+        <div class="container mx-auto">
+            <h2 class="text-4xl font-bold text-center text-gray-800 mb-12 
+           transition duration-300 transform hover:scale-105 hover:text-blue-600 hover:drop-shadow-lg">
+  Pencapaian
+</h2>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+  <!-- Card 1 -->
+  <div class="text-center bg-white p-8 rounded-xl shadow-lg 
+              transition duration-300 transform hover:scale-105 hover:shadow-2xl">
+    <div class="w-20 h-20 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4 
+                transition duration-300 group-hover:bg-blue-200">
+      <i class="fas fa-trophy text-blue-600 text-3xl transition duration-300 group-hover:text-yellow-500"></i>
+    </div>
+    <h3 class="text-3xl font-bold text-gray-800 mb-2">Achieved IDR 20B+</h3>
+    <p class="text-gray-600">Total Nilai Proyek Tender</p>
+  </div>
+
+  <!-- Card 2 -->
+  <div class="text-center bg-white p-8 rounded-xl shadow-lg 
+              transition duration-300 transform hover:scale-105 hover:shadow-2xl">
+    <div class="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+      <i class="fas fa-calendar-alt text-green-600 text-3xl"></i>
+    </div>
+    <h3 class="text-3xl font-bold text-gray-800 mb-2">5+</h3>
+    <p class="text-gray-600">Tahun Pengalaman</p>
+  </div>
+
+  <!-- Card 3 -->
+  <div class="text-center bg-white p-8 rounded-xl shadow-lg 
+              transition duration-300 transform hover:scale-105 hover:shadow-2xl">
+    <div class="w-20 h-20 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
+      <i class="fas fa-chart-line text-purple-600 text-3xl"></i>
+    </div>
+    <h3 class="text-3xl font-bold text-gray-800 mb-2">30%</h3>
+    <p class="text-gray-600">Peningkatan Efisiensi</p>
+  </div>
+
+  <!-- Card 4 -->
+  <div class="text-center bg-white p-8 rounded-xl shadow-lg 
+              transition duration-300 transform hover:scale-105 hover:shadow-2xl">
+    <div class="w-20 h-20 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
+      <i class="fas fa-award text-orange-600 text-3xl"></i>
+    </div>
+    <h3 class="text-3xl font-bold text-gray-800 mb-2">13+</h3>
+    <p class="text-gray-600">Proyek Selesai</p>
+  </div>
+</div>
+
+    </section>
+
+     <!-- Project Success List -->
+            <div class="mt-16">
+                <h3 class="text-3xl font-bold text-center text-gray-800 mb-8">Won Projects</h3>
+                
+                <!-- Scrollable container with custom styling -->
+                <div class="max-w-6xl mx-auto">
+                    <div class="project-scroll-container bg-gray-50 rounded-2xl p-6 shadow-inner" style="max-height: 600px; overflow-y: auto;">
+                        <div class="space-y-4">
+                            
+                            <div class="bg-white rounded-xl shadow-lg p-4 hover:shadow-xl transition-all duration-300 hover:scale-[1.02]">
+                                <div class="flex flex-col lg:flex-row lg:items-center justify-between">
+                                    <div class="flex-1">
+                                        <div class="bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm font-medium inline-block mb-2">
+                                            Perencanaan Ekspansi Hanggar Untuk Final Assembly Line (FAL) PT. Dirgantara Indonesia
+                                        </div>
+                                    </div>
+                                    <div class="bg-blue-600 text-white px-6 py-2 rounded-full font-bold text-lg lg:ml-4 mt-2 lg:mt-0">
+                                        Rp. 3.700.000.000
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="bg-white rounded-xl shadow-lg p-4 hover:shadow-xl transition-all duration-300 hover:scale-[1.02]">
+                                <div class="flex flex-col lg:flex-row lg:items-center justify-between">
+                                    <div class="flex-1">
+                                        <div class="bg-purple-100 text-purple-800 px-4 py-2 rounded-full text-sm font-medium inline-block mb-2">
+                                            SLF Bangunan Gedung PT. Indonesia Nippon
+                                        </div>
+                                    </div>
+                                    <div class="bg-purple-600 text-white px-6 py-2 rounded-full font-bold text-lg lg:ml-4 mt-2 lg:mt-0">
+                                        Rp. 1.063.380.000
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="bg-white rounded-xl shadow-lg p-4 hover:shadow-xl transition-all duration-300 hover:scale-[1.02]">
+                                <div class="flex flex-col lg:flex-row lg:items-center justify-between">
+                                    <div class="flex-1">
+                                        <div class="bg-orange-100 text-orange-800 px-4 py-2 rounded-full text-sm font-medium inline-block mb-2">
+                                            Pembangunan Gedung Terpadu STAIN Sultan Abdurrahman Kepulauan Riau
+                                        </div>
+                                    </div>
+                                    <div class="bg-orange-600 text-white px-6 py-2 rounded-full font-bold text-lg lg:ml-4 mt-2 lg:mt-0">
+                                        Rp. 1.690.270.008
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="bg-white rounded-xl shadow-lg p-4 hover:shadow-xl transition-all duration-300 hover:scale-[1.02]">
+                                <div class="flex flex-col lg:flex-row lg:items-center justify-between">
+                                    <div class="flex-1">
+                                        <div class="bg-yellow-100 text-yellow-800 px-4 py-2 rounded-full text-sm font-medium inline-block mb-2">
+                                            Pengadaan Jasa Konsultan Renovasi DJKl Jakarta
+                                        </div>
+                                    </div>
+                                    <div class="bg-yellow-600 text-white px-6 py-2 rounded-full font-bold text-lg lg:ml-4 mt-2 lg:mt-0">
+                                        Rp. 1.064.101.500
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="bg-white rounded-xl shadow-lg p-4 hover:shadow-xl transition-all duration-300 hover:scale-[1.02]">
+                                <div class="flex flex-col lg:flex-row lg:items-center justify-between">
+                                    <div class="flex-1">
+                                        <div class="bg-teal-100 text-teal-800 px-4 py-2 rounded-full text-sm font-medium inline-block mb-2">
+                                            Local Construction Supervisors in New Coil Yard and Skin Pass Mill at Hot Strip Mill 2
+                                        </div>
+                                    </div>
+                                    <div class="bg-teal-600 text-white px-6 py-2 rounded-full font-bold text-lg lg:ml-4 mt-2 lg:mt-0">
+                                        Rp. 1.022.934.500
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="bg-white rounded-xl shadow-lg p-4 hover:shadow-xl transition-all duration-300 hover:scale-[1.02]">
+                                <div class="flex flex-col lg:flex-row lg:items-center justify-between">
+                                    <div class="flex-1">
+                                        <div class="bg-cyan-100 text-cyan-800 px-4 py-2 rounded-full text-sm font-medium inline-block mb-2">
+                                            Perencanaan Pembangunan Gedung B Asrama Haji
+                                        </div>
+                                    </div>
+                                    <div class="bg-cyan-600 text-white px-6 py-2 rounded-full font-bold text-lg lg:ml-4 mt-2 lg:mt-0">
+                                        Rp. 1.270.280.000
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="bg-white rounded-xl shadow-lg p-4 hover:shadow-xl transition-all duration-300 hover:scale-[1.02]">
+                                <div class="flex flex-col lg:flex-row lg:items-center justify-between">
+                                    <div class="flex-1">
+                                        <div class="bg-indigo-100 text-indigo-800 px-4 py-2 rounded-full text-sm font-medium inline-block mb-2">
+                                            Teknis Sertifikasi Bangunan Gedung PT. Sokonindo Automobile
+                                        </div>
+                                    </div>
+                                    <div class="bg-indigo-600 text-white px-6 py-2 rounded-full font-bold text-lg lg:ml-4 mt-2 lg:mt-0">
+                                        Rp. 1.690.270.008
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="bg-white rounded-xl shadow-lg p-4 hover:shadow-xl transition-all duration-300 hover:scale-[1.02]">
+                                <div class="flex flex-col lg:flex-row lg:items-center justify-between">
+                                    <div class="flex-1">
+                                        <div class="bg-pink-100 text-pink-800 px-4 py-2 rounded-full text-sm font-medium inline-block mb-2">
+                                            Pembangunan Kantor Instalasi Farmasi dan Penyimpangan Vaksin Dinas Kesehatan
+                                        </div>
+                                    </div>
+                                    <div class="bg-pink-600 text-white px-6 py-2 rounded-full font-bold text-lg lg:ml-4 mt-2 lg:mt-0">
+                                        Rp. 1.936.934.120
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="bg-white rounded-xl shadow-lg p-4 hover:shadow-xl transition-all duration-300 hover:scale-[1.02]">
+                                <div class="flex flex-col lg:flex-row lg:items-center justify-between">
+                                    <div class="flex-1">
+                                        <div class="bg-violet-100 text-violet-800 px-4 py-2 rounded-full text-sm font-medium inline-block mb-2">
+                                            Manajemen Konstruksi Gedung Rusun 1 Dan Infrastruktur ITB Cirebon
+                                        </div>
+                                    </div>
+                                    <div class="bg-violet-600 text-white px-6 py-2 rounded-full font-bold text-lg lg:ml-4 mt-2 lg:mt-0">
+                                        Rp. 1.337.626.100
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="bg-white rounded-xl shadow-lg p-4 hover:shadow-xl transition-all duration-300 hover:scale-[1.02]">
+                                <div class="flex flex-col lg:flex-row lg:items-center justify-between">
+                                    <div class="flex-1">
+                                        <div class="bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm font-medium inline-block mb-2">
+                                            Perencanaan Pembangunan Gedung Satpa Polres Garut TA. 2025
+                                        </div>
+                                    </div>
+                                    <div class="bg-blue-600 text-white px-6 py-2 rounded-full font-bold text-lg lg:ml-4 mt-2 lg:mt-0">
+                                        Rp. 1.069.431.000
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="bg-white rounded-xl shadow-lg p-4 hover:shadow-xl transition-all duration-300 hover:scale-[1.02]">
+                                <div class="flex flex-col lg:flex-row lg:items-center justify-between">
+                                    <div class="flex-1">
+                                        <div class="bg-purple-100 text-purple-800 px-4 py-2 rounded-full text-sm font-medium inline-block mb-2">
+                                            Perencanaan Pembangunan Gedung SATPAS Prototype Polres Bangkalan TA. 2025.
+                                        </div>
+                                    </div>
+                                    <div class="bg-purple-600 text-white px-6 py-2 rounded-full font-bold text-lg lg:ml-4 mt-2 lg:mt-0">
+                                        Rp. 1.730.622.000
+                                    </div>
+                                </div>
+                            </div>
+                            
+<div class="bg-white rounded-xl shadow-lg p-4 hover:shadow-xl transition-all duration-300 hover:scale-[1.02]">
+                                <div class="flex flex-col lg:flex-row lg:items-center justify-between">
+                                    <div class="flex-1">
+                                        <div class="bg-orange-100 text-orange-800 px-4 py-2 rounded-full text-sm font-medium inline-block mb-2">
+                                            Jasa Konsultan Perencana Pembangunan Gedung Satpas Porlesta Cilacap TA. 2025
+                                        </div>
+                                    </div>
+                                    <div class="bg-orange-600 text-white px-6 py-2 rounded-full font-bold text-lg lg:ml-4 mt-2 lg:mt-0">
+                                        Rp. 1.395.848.000
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="bg-white rounded-xl shadow-lg p-4 hover:shadow-xl transition-all duration-300 hover:scale-[1.02]">
+                                <div class="flex flex-col lg:flex-row lg:items-center justify-between">
+                                    <div class="flex-1">
+                                        <div class="bg-yellow-100 text-yellow-800 px-4 py-2 rounded-full text-sm font-medium inline-block mb-2">
+                                            Jasa Konsultan Perencanaan Pembangunan Gedung Pelayanan BPKB Polres Lombok Timur TA. 2025
+
+                                        </div>
+                                    </div>
+                                    <div class="bg-yellow-600 text-white px-6 py-2 rounded-full font-bold text-lg lg:ml-4 mt-2 lg:mt-0">
+                                        Rp. 1.566.876.000
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+                        </div>
+                    </div>
+                    
+                    <!-- Scroll indicator -->
+                    <div class="text-center mt-4">
+                        <p class="text-gray-500 text-sm">
+                            <i class="fas fa-mouse mr-2"></i>
+                            Scroll untuk melihat lebih banyak proyek
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Summary Card -->
+            <div class="mt-12 bg-gradient-to-r from-sky-500 to-indigo-600 text-white rounded-1xl p-8 text-center">
+                    <h4 class="text-2xl font-bold mb-4">Total Portfolio Value</h4>
+                   <div class="text-4xl font-bold mb-2 relative inline-block overflow-hidden transition duration-300 transform hover:scale-105">
+  <span class="relative z-10">Rp. 20.538.573.236</span>
+  <div class="absolute inset-0 bg-gradient-to-r from-transparent via-purple-300 to-transparent 
+              opacity-40 transform -skew-x-12 animate-shimmer pointer-events-none"></div>
+</div>
+
+
+
+                    
+                    <p class="text-blue-100">“Dua puluh miliar lima ratus tiga puluh delapan juta lima ratus tujuh puluh tiga ribu dua ratus tiga puluh enam rupiah.”</p>
+                    <div class="mt-6 flex justify-center space-x-8">
+                        <div class="text-center">
+                            <div class="text-2xl font-bold">12+</div>
+                            <div class="text-blue-100 text-sm">Proyek Selesai</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-2xl font-bold">100%</div>
+                            <div class="text-blue-100 text-sm">Success Rate</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-2xl font-bold">5+</div>
+                            <div class="text-blue-100 text-sm">Tahun Pengalaman</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+  
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="py-16 px-6 bg-gradient-to-r from-gray-50 to-blue-50">
+        <div class="container mx-auto">
+            <h2 class="text-4xl font-bold text-center text-gray-800 mb-12">Gallery Kerja</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                
+                <div class="gallery-item rounded-xl overflow-hidden shadow-lg bg-white">
+                    <img src="Gallery Kerja/diskusi.jpg" 
+                         alt="Monitoring Pekerjaan" class="w-full h-64 object-cover">
+                    <div class="p-4">
+                        <h3 class="font-bold text-gray-800">Meeting dengan Klien</h3>
+                        <p class="text-gray-600 text-sm">Presentasi proposal tender proyek infrastruktur</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item rounded-xl overflow-hidden shadow-lg bg-white">
+                    <img src="Gallery Kerja/diskusi2.jpeg" 
+                         alt="Team collaboration" class="w-full h-64 object-cover">
+                    <div class="p-4">
+                        <h3 class="font-bold text-gray-800">Ukpbbj Pemerintah Kota Bandung</h3>
+                        <p class="text-gray-600 text-sm">Klarifikasi Teknis</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item rounded-xl overflow-hidden shadow-lg bg-white">
+                    <img src="Gallery Kerja/diskusi 3.jpeg" 
+                         alt="Data analysis" class="w-full h-64 object-cover">
+                    <div class="p-4">
+                        <h3 class="font-bold text-gray-800">ITERA Lampung</h3>
+                        <p class="text-gray-600 text-sm">Klarifikasi Dokumen Untuk Project Tender</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item rounded-xl overflow-hidden shadow-lg bg-white">
+                    <img src="Gallery Kerja/diskusi 4.jpeg" 
+                         alt="Presentation" class="w-full h-64 object-cover">
+                    <div class="p-4">
+                        <h3 class="font-bold text-gray-800">LPSE DKI Jakarta</h3>
+                        <p class="text-gray-600 text-sm">Klarifikasi Dokumen Untuk Project Tender</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item rounded-xl overflow-hidden shadow-lg bg-white">
+                    <img src="Gallery Kerja/diskusi 5.jpg" 
+                         alt="Documentation" class="w-full h-64 object-cover">
+                    <div class="p-4">
+                        <h3 class="font-bold text-gray-800">LPSE Kemenkeu</h3>
+                        <p class="text-gray-600 text-sm">Klarifikasi Via Zoom Meeting</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item rounded-xl overflow-hidden shadow-lg bg-white">
+                    <img src="Gallery Kerja/diskusi6.jpeg" 
+                         alt="Workshop" class="w-full h-64 object-cover">
+                    <div class="p-4">
+                        <h3 class="font-bold text-gray-800">Workshop Training</h3>
+                        <p class="text-gray-600 text-sm">Pelatihan prosedur tender terbaru</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 px-6">
+        <div class="container mx-auto">
+            <h2 class="text-4xl font-bold text-center text-gray-800 mb-12">Hubungi Saya</h2>
+            <div class="grid md:grid-cols-2 gap-12">
+                
+                <div>
+                    <h3 class="text-2xl font-bold text-gray-800 mb-6">Mari Berkolaborasi</h3>
+                    <p class="text-gray-600 mb-8 leading-relaxed">
+                        Tertarik untuk bekerja sama atau ingin mendiskusikan proyek tender? 
+                        Saya siap membantu dengan pengalaman dan keahlian yang saya miliki.
+                    </p>
+                    
+                    <div class="space-y-4">
+  <div class="flex items-center">
+    <i class="fas fa-envelope text-blue-600 w-6 text-center"></i>
+    <span class="text-gray-700 ml-4">abusyaekhon@gmail.com</span>
+  </div>
+
+  <div class="flex items-center">
+    <i class="fas fa-phone text-blue-600 w-6 text-center"></i>
+    <a href="https://wa.me/6285860621873" target="_blank" class="text-gray-700 ml-4 hover:text-green-600">
+      0858 6062 1873 | WhatsApp
+    </a>
+  </div>
+
+  <div class="flex items-center">
+    <i class="fas fa-map-marker-alt text-blue-600 w-6 text-center"></i>
+    <span class="text-gray-700 ml-4">Bandung, Indonesia</span>
+  </div>
+</div>
+
+
+                    <div class="flex space-x-4 mt-8">
+                        <a href="#" class="w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center hover:bg-blue-700 transition-colors">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="https://wa.me/6285860621873" target="_blank" 
+   class="w-12 h-12 bg-green-600 text-white rounded-full flex items-center justify-center hover:bg-green-700 transition-colors">
+    <i class="fab fa-whatsapp"></i>
+</a>
+
+                        <a href="#" class="w-12 h-12 bg-gray-800 text-white rounded-full flex items-center justify-center hover:bg-gray-900 transition-colors">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="#" class="w-12 h-12 bg-red-600 text-white rounded-full flex items-center justify-center hover:bg-red-700 transition-colors">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="bg-white p-8 rounded-2xl shadow-lg">
+                    <form class="space-y-6" id="contactForm">
+                        <div>
+                            <input type="text" placeholder="Nama Lengkap" required
+                                   class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-blue-500 focus:outline-none transition-colors">
+                        </div>
+                        <div>
+                            <input type="email" placeholder="Email" required
+                                   class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-blue-500 focus:outline-none transition-colors">
+                        </div>
+                        <div>
+                            <textarea placeholder="Pesan Anda" rows="5" required
+                                      class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-blue-500 focus:outline-none transition-colors resize-none"></textarea>
+                        </div>
+                        <button type="submit" 
+                                class="w-full bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700 transition-colors font-semibold">
+                            Kirim Pesan
+                        </button>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+<footer class="relative bg-gray-900 text-white py-10 px-6 overflow-hidden">
+  <!-- Glow Background -->
+  <div class="absolute inset-0">
+    <div class="w-full h-full bg-gradient-to-r from-purple-600/20 via-blue-500/10 to-cyan-400/20 blur-3xl animate-footer-glow"></div>
+  </div>
+
+  <!-- Footer Content -->
+  <div class="relative container mx-auto text-center">
+    <h2 class="text-2xl font-bold tracking-widest bg-clip-text text-transparent bg-gradient-to-r from-purple-400 via-blue-400 to-cyan-400 animate-pulse">
+      Abu Syaekhon
+    </h2>
+
+    <p class="text-gray-400 mt-2">&copy; 2025. All rights reserved.</p>
+    <p class="text-gray-500 text-sm mt-4 italic">
+      “Dedicated to delivering accurate and reliable tender administration.”
+    </p>
+
+    <!-- Futuristic Line -->
+    <div class="mt-6 h-[1px] w-2/3 mx-auto bg-gradient-to-r from-transparent via-blue-500 to-transparent animate-glow-line"></div>
+  </div>
+</footer>
+>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenu = document.getElementById('mobileMenu');
+        const mobileMenuPanel = document.getElementById('mobileMenuPanel');
+        
+        mobileMenu.addEventListener('click', () => {
+            mobileMenuPanel.classList.toggle('hidden');
+        });
+
+        // Close mobile menu when clicking on links
+        document.querySelectorAll('.mobile-link').forEach(link => {n
+            link.addEventListener('click', () => {
+                mobileMenuPanel.classList.add('hidden');
+            });
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const offsetTop = target.offsetTop - 80;
+                    window.scrollTo({
+                        top: offsetTop,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Form submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Terima kasih! Pesan Anda telah dikirim. Saya akan segera menghubungi Anda.');
+            this.reset();
+        });
+
+        // Simple scroll animations
+        window.addEventListener('scroll', () => {
+            const elements = document.querySelectorAll('.skill-card, .gallery-item');
+            elements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 150;
+                
+                if (elementTop < window.innerHeight - elementVisible) {
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateY(0)';
+                }
+            });
+        });
+
+        // Initialize elements for scroll animation
+        document.addEventListener('DOMContentLoaded', () => {
+            const elements = document.querySelectorAll('.skill-card, .gallery-item');
+            elements.forEach(element => {
+                element.style.opacity = '0';
+                element.style.transform = 'translateY(20px)';
+                element.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            });
+        });
+    </script>
+</body>
+</html>
